@@ -1,0 +1,14 @@
+# Same shape/caveat as crossencoder_only.yaml (BM25 top-100 candidate pool,
+# since full-label-space cross-encoder is infeasible) but using the
+# fine-tuned cross-encoder instead of the off-the-shelf one.
+exp_id: crossencoder_only_finetuned
+dataset: eurlex-4k
+batch_size: 32
+eval_ks: [1, 5, 10]
+test_sample_size: null
+pipeline:
+  - stage: bm25
+    top_k: 100
+  - stage: cross_encoder
+    model_config: configs/models/cross_encoder_finetuned_eurlex.yaml
+    top_k: 10

@@ -1,0 +1,13 @@
+# Same caveat as eurlex's crossencoder_only: restricted to a fixed BM25
+# top-100 candidate pool, since a true full-label-space cross-encoder is
+# infeasible (6616 test docs x 30938 labels).
+exp_id: wiki10_crossencoder_only
+dataset: wiki10-31k
+batch_size: 32
+eval_ks: [1, 5, 10]
+test_sample_size: null
+pipeline:
+  - stage: bm25
+    top_k: 100
+  - stage: cross_encoder
+    top_k: 10

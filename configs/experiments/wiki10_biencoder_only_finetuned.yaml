@@ -1,0 +1,9 @@
+exp_id: wiki10_biencoder_only_finetuned
+dataset: wiki10-31k
+batch_size: 128
+eval_ks: [1, 5, 10]
+test_sample_size: null
+pipeline:
+  - stage: bi_encoder
+    model_config: configs/models/bi_encoder_finetuned_wiki10.yaml
+    top_k: 10

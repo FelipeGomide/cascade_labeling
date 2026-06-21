@@ -8,16 +8,16 @@
   },
   "total": {
     "stage": "biencoder_only_finetuned",
-    "wall_time_s": 6.705691952000052,
-    "cpu_time_s": 22.850000000000005,
-    "peak_rss_mb": 1881.578125,
+    "wall_time_s": 6.49677299799805,
+    "cpu_time_s": 22.61,
+    "peak_rss_mb": 1873.83203125,
     "peak_vram_mb": 883.11376953125,
-    "mean_gpu_util_pct": 19.384,
-    "energy_j": 423.1179736487107
+    "mean_gpu_util_pct": 35.18852459016394,
+    "energy_j": 424.6109956908444
   },
   "per_stage": {
     "bi_encoder": {
-      "wall_time_s": 6.704806097008259,
+      "wall_time_s": 6.495933139005501,
       "mean_candidates": 10.0
     }
   }

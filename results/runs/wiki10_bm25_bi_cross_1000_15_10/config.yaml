@@ -1,0 +1,16 @@
+# Same as wiki10_bm25_bi_cross_1000_100_10.yaml but the bi-encoder hands the
+# cross-encoder only its top-15 candidates instead of top-100 -- on Eurlex-4k
+# this was both faster AND more accurate than top-100 (less noise for the
+# cross-encoder to discriminate), so testing the same here.
+exp_id: wiki10_bm25_bi_cross_1000_15_10
+dataset: wiki10-31k
+batch_size: 128
+eval_ks: [1, 5, 10]
+test_sample_size: null
+pipeline:
+  - stage: bm25
+    top_k: 1000
+  - stage: bi_encoder
+    top_k: 15
+  - stage: cross_encoder
+    top_k: 10

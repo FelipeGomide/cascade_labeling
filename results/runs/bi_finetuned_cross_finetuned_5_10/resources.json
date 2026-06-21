@@ -1,0 +1,28 @@
+{
+  "hardware": {
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+    "cpu_count": 12,
+    "total_ram_gb": 31.3,
+    "gpu_name": "NVIDIA GeForce RTX 4060 Ti",
+    "gpu_vram_gb": 8.0
+  },
+  "total": {
+    "stage": "bi_finetuned_cross_finetuned_5_10",
+    "wall_time_s": 48.14179076800065,
+    "cpu_time_s": 134.06,
+    "peak_rss_mb": 2057.390625,
+    "peak_vram_mb": 200.865234375,
+    "mean_gpu_util_pct": 23.98218029350105,
+    "energy_j": 2218.6771805389726
+  },
+  "per_stage": {
+    "bi_encoder": {
+      "wall_time_s": 7.882965501972649,
+      "mean_candidates": 5.0
+    },
+    "cross_encoder": {
+      "wall_time_s": 40.25587742198695,
+      "mean_candidates": 5.0
+    }
+  }
+}

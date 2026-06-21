@@ -1,0 +1,15 @@
+# Mirrors bi_finetuned_cross_finetuned_15_10.yaml, the best pipeline found on
+# Eurlex-4k: NO BM25 stage at all -- bi-encoder scores the full label space
+# directly (avoiding any BM25 recall ceiling), then cross-encoder reranks
+# its top-15 candidates. Off-the-shelf models (no fine-tuning done for
+# Wiki10-31k yet).
+exp_id: wiki10_bi_cross_15_10
+dataset: wiki10-31k
+batch_size: 32
+eval_ks: [1, 5, 10]
+test_sample_size: null
+pipeline:
+  - stage: bi_encoder
+    top_k: 15
+  - stage: cross_encoder
+    top_k: 10

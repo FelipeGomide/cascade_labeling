@@ -1,0 +1,15 @@
+# Full cascade, both encoders fine-tuned: BM25 -> bi_encoder(finetuned) -> cross_encoder(finetuned).
+exp_id: bm25_bi_cross_finetuned
+dataset: eurlex-4k
+batch_size: 32
+eval_ks: [1, 5, 10]
+test_sample_size: null
+pipeline:
+  - stage: bm25
+    top_k: 1000
+  - stage: bi_encoder
+    model_config: configs/models/bi_encoder_finetuned_eurlex.yaml
+    top_k: 100
+  - stage: cross_encoder
+    model_config: configs/models/cross_encoder_finetuned_eurlex.yaml
+    top_k: 10

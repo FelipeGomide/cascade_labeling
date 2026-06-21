@@ -8,20 +8,20 @@
   },
   "total": {
     "stage": "bm25_bi_1000_100_finetuned",
-    "wall_time_s": 8.550774418999936,
-    "cpu_time_s": 22.47,
-    "peak_rss_mb": 1917.4765625,
+    "wall_time_s": 8.405623847997049,
+    "cpu_time_s": 22.520000000000003,
+    "peak_rss_mb": 1918.53515625,
     "peak_vram_mb": 883.11376953125,
-    "mean_gpu_util_pct": 35.3416149068323,
-    "energy_j": 488.7139266770189
+    "mean_gpu_util_pct": 29.9125,
+    "energy_j": 475.2607724707328
   },
   "per_stage": {
     "bm25": {
-      "wall_time_s": 1.9025967520028644,
+      "wall_time_s": 1.8961667780240532,
       "mean_candidates": 1000.0
     },
     "bi_encoder": {
-      "wall_time_s": 6.646520665006392,
+      "wall_time_s": 6.507884308004577,
       "mean_candidates": 100.0
     }
   }

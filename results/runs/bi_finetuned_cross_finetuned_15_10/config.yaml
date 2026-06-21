@@ -1,0 +1,17 @@
+# Same as bi_finetuned_cross_finetuned_100_10.yaml but the bi-encoder hands
+# the cross-encoder only its top-15 candidates instead of top-100, to test
+# whether the cross-encoder still performs well on a much smaller (faster)
+# candidate pool, or whether the tighter recall ceiling at top-15 hurts more
+# than the ~6.7x speedup is worth.
+exp_id: bi_finetuned_cross_finetuned_15_10
+dataset: eurlex-4k
+batch_size: 32
+eval_ks: [1, 5, 10]
+test_sample_size: null
+pipeline:
+  - stage: bi_encoder
+    model_config: configs/models/bi_encoder_finetuned_eurlex.yaml
+    top_k: 15
+  - stage: cross_encoder
+    model_config: configs/models/cross_encoder_finetuned_eurlex.yaml
+    top_k: 10

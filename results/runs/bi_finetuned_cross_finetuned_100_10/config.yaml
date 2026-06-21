@@ -1,0 +1,15 @@
+# Direct retry of bi_finetuned_cross_100_10.yaml (which showed the off-the-shelf
+# cross-encoder destroying the fine-tuned bi-encoder's good ranking, PS-nDCG@1
+# dropping from 0.412 standalone to 0.136). Now both stages are fine-tuned.
+exp_id: bi_finetuned_cross_finetuned_100_10
+dataset: eurlex-4k
+batch_size: 32
+eval_ks: [1, 5, 10]
+test_sample_size: null
+pipeline:
+  - stage: bi_encoder
+    model_config: configs/models/bi_encoder_finetuned_eurlex.yaml
+    top_k: 100
+  - stage: cross_encoder
+    model_config: configs/models/cross_encoder_finetuned_eurlex.yaml
+    top_k: 10
