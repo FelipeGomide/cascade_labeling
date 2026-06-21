@@ -6,11 +6,17 @@ __pycache__/
 
 # Large data artifacts — all rebuildable, see docs/02_datasets.md and docs/06_rag_labels.md
 # data/raw/      : scripts/00_download_data.py
-# data/processed/: scripts/01_prepare_data.py (+ scripts/05_generate_rag_labels.py for rag_labels.parquet)
+# data/processed/: scripts/01_prepare_data.py
 # data/external/ : auto-downloaded by src/cascade/data/prepare.py on first use
 data/raw/
-data/processed/
 data/external/
+
+# data/processed/ is rebuildable EXCEPT rag_labels.parquet, which we keep committed
+# (it's small and takes hours of LLM generation to rebuild — see docs/06_rag_labels.md)
+data/processed/*
+!data/processed/*/
+data/processed/*/*
+!data/processed/*/rag_labels.parquet
 
 # Fine-tuned model checkpoints — rebuildable via scripts/06_finetune_bi_encoder.py
 models/
