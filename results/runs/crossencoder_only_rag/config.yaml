@@ -1,0 +1,13 @@
+# Same caveat as crossencoder_only.yaml: restricted to a fixed BM25 top-100
+# candidate pool, since a true full-label-space cross-encoder is infeasible.
+exp_id: crossencoder_only_rag
+dataset: eurlex-4k
+batch_size: 32
+eval_ks: [1, 5, 10]
+test_sample_size: null
+use_rag_labels: true
+pipeline:
+  - stage: bm25
+    top_k: 100
+  - stage: cross_encoder
+    top_k: 10

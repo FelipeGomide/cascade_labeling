@@ -1,0 +1,19 @@
+[project]
+name = "cascade"
+version = "0.1.0"
+description = "Cascade ranking pipeline for Extreme Multi-Label Text Classification (XMTC)"
+requires-python = ">=3.11"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

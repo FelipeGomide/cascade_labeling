@@ -1,0 +1,30 @@
+name: eurlex-4k
+pecos_url: https://archive.org/download/pecos-dataset/xmc-base/eurlex-4k.tar.gz
+raw_dir: data/raw/eurlex-4k
+processed_dir: data/processed/eurlex-4k
+
+# A small minority of EuroVoc label texts in this dataset are bare legacy
+# numeric codes rather than descriptor terms; resolve them via the EuroVoc
+# thesaurus mapping (see src/cascade/data/prepare.py). Not applicable to
+# non-EuroVoc datasets (e.g. Wiki10-31k uses genuine numeric label strings).
+resolve_numeric_labels_via_eurovoc: true
+
+# Expected stats (paper Table 1) — used as sanity-check assertions in 01_prepare_data.py
+expected:
+  n_train: 15449
+  n_test: 3865
+  n_total: 19314
+  n_labels: 3956
+  avg_tail_labels: 1.07
+  avg_head_labels: 4.25
+
+# Propensity model constants (pyxclib convention)
+propensity:
+  A: 0.55
+  B: 1.5
+
+# Truncation lengths (tokens) — Eurlex docs are short, generous limits are fine
+truncation:
+  bm25_query_tokens: 512
+  encoder_doc_tokens: 384
+  cross_encoder_pair_tokens: 512

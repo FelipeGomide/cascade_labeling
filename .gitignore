@@ -1,0 +1,25 @@
+# Python environment
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+
+# Large data artifacts — all rebuildable, see docs/02_datasets.md and docs/06_rag_labels.md
+# data/raw/      : scripts/00_download_data.py
+# data/processed/: scripts/01_prepare_data.py (+ scripts/05_generate_rag_labels.py for rag_labels.parquet)
+# data/external/ : auto-downloaded by src/cascade/data/prepare.py on first use
+data/raw/
+data/processed/
+data/external/
+
+# Fine-tuned model checkpoints — rebuildable via scripts/06_finetune_bi_encoder.py
+models/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+
+# Claude Code harness session state (local, not project content)
+.claude/

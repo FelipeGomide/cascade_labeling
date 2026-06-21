@@ -1,0 +1,14 @@
+# BM25 stays lexical (raw label text); cross-encoder uses RAG-augmented
+# label text. Same shape/cutoffs as crossencoder_only.yaml for comparability.
+exp_id: bm25_cross_100_10_mixedrag
+dataset: eurlex-4k
+batch_size: 32
+eval_ks: [1, 5, 10]
+test_sample_size: null
+pipeline:
+  - stage: bm25
+    top_k: 100
+    use_rag_labels: false
+  - stage: cross_encoder
+    top_k: 10
+    use_rag_labels: true

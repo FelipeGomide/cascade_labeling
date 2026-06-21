@@ -1,0 +1,23 @@
+name: wiki10-31k
+pecos_url: https://archive.org/download/pecos-dataset/xmc-base/wiki10-31k.tar.gz
+raw_dir: data/raw/wiki10-31k
+processed_dir: data/processed/wiki10-31k
+
+# Expected stats (paper Table 1)
+expected:
+  n_train: 14146
+  n_test: 6616
+  n_total: 20762
+  n_labels: 30938
+  avg_tail_labels: 15.1
+  avg_head_labels: 3.66
+
+propensity:
+  A: 0.55
+  B: 1.5
+
+# Wiki10 docs are very long (~2086 words avg) — must truncate for BM25/encoders
+truncation:
+  bm25_query_tokens: 512
+  encoder_doc_tokens: 256
+  cross_encoder_pair_tokens: 512

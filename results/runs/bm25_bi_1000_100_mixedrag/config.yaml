@@ -1,0 +1,14 @@
+# BM25 stays lexical (raw label text); bi-encoder uses RAG-augmented label
+# text. Per-stage use_rag_labels overrides the (unset) experiment-level default.
+exp_id: bm25_bi_1000_100_mixedrag
+dataset: eurlex-4k
+batch_size: 256
+eval_ks: [1, 5, 10]
+test_sample_size: null
+pipeline:
+  - stage: bm25
+    top_k: 1000
+    use_rag_labels: false
+  - stage: bi_encoder
+    top_k: 100
+    use_rag_labels: true

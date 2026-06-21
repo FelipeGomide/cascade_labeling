@@ -1,0 +1,10 @@
+exp_id: bm25_bi_1000_100
+dataset: eurlex-4k
+batch_size: 256
+eval_ks: [1, 5, 10]
+test_sample_size: null
+pipeline:
+  - stage: bm25
+    top_k: 1000
+  - stage: bi_encoder
+    top_k: 100

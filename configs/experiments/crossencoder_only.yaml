@@ -1,0 +1,14 @@
+# NOTE: a true cross-encoder-only baseline over the full label space is
+# computationally infeasible (N_test x L pairs). This restricts scoring to a
+# fixed cheap candidate pool (BM25 top-100) as a stand-in "single-stage" cross
+# encoder baseline -- see README caveat.
+exp_id: crossencoder_only
+dataset: eurlex-4k
+batch_size: 32
+eval_ks: [1, 5, 10]
+test_sample_size: null
+pipeline:
+  - stage: bm25
+    top_k: 100
+  - stage: cross_encoder
+    top_k: 10

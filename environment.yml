@@ -1,0 +1,41 @@
+name: cascade
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - scipy
+  - pandas
+  - pyarrow
+  - tqdm
+  - pyyaml
+  - scikit-learn
+  - jupyterlab
+  - ipykernel
+  - matplotlib
+  - seaborn
+  - pytest
+  - ruff
+  - black
+  - pytorch
+  - pytorch-cuda=12.1
+  - pip:
+      - omegaconf
+      - bm25s
+      - faiss-cpu
+      - transformers
+      - sentence-transformers
+      - accelerate
+      - plotly
+      - kaleido
+      - psutil
+      - nvidia-ml-py
+      - codecarbon
+      - huggingface_hub
+      - datasets
+      - requests
+      - gdown

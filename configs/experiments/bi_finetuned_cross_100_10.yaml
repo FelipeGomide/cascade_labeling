@@ -1,0 +1,14 @@
+# No BM25 stage: fine-tuned bi-encoder scores the FULL label space directly
+# (avoids BM25's recall ceiling, e.g. 0.595 recall@1000 seen in earlier runs),
+# then cross-encoder reranks its top-100 candidates.
+exp_id: bi_finetuned_cross_100_10
+dataset: eurlex-4k
+batch_size: 32
+eval_ks: [1, 5, 10]
+test_sample_size: null
+pipeline:
+  - stage: bi_encoder
+    model_config: configs/models/bi_encoder_finetuned_eurlex.yaml
+    top_k: 100
+  - stage: cross_encoder
+    top_k: 10

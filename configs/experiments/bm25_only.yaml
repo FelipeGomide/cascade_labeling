@@ -1,0 +1,8 @@
+exp_id: bm25_only
+dataset: eurlex-4k
+batch_size: 256
+eval_ks: [1, 5, 10]
+test_sample_size: null
+pipeline:
+  - stage: bm25
+    top_k: 10

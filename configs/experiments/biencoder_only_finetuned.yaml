@@ -1,0 +1,9 @@
+exp_id: biencoder_only_finetuned
+dataset: eurlex-4k
+batch_size: 256
+eval_ks: [1, 5, 10]
+test_sample_size: null
+pipeline:
+  - stage: bi_encoder
+    model_config: configs/models/bi_encoder_finetuned_eurlex.yaml
+    top_k: 10

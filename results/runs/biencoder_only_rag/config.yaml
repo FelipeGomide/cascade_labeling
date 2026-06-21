@@ -1,0 +1,9 @@
+exp_id: biencoder_only_rag
+dataset: eurlex-4k
+batch_size: 256
+eval_ks: [1, 5, 10]
+test_sample_size: null
+use_rag_labels: true
+pipeline:
+  - stage: bi_encoder
+    top_k: 10

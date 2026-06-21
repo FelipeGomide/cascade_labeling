@@ -1,0 +1,8 @@
+exp_id: wiki10_bm25_only
+dataset: wiki10-31k
+batch_size: 128
+eval_ks: [1, 5, 10]
+test_sample_size: null
+pipeline:
+  - stage: bm25
+    top_k: 10
